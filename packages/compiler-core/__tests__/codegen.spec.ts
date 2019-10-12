@@ -179,7 +179,7 @@ describe('compiler: codegen', () => {
     expect(code).toMatch(
       `return _${helperNameMap[CREATE_VNODE]}(_${
         helperNameMap[COMMENT]
-      }, 0, "foo")`
+      }, void 0, "foo")`
     )
     expect(code).toMatchSnapshot()
   })

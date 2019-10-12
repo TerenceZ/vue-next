@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`compiler: hoistStatic transform hoist element with static comment 1`] = `
+"const _Vue = Vue
+const _createVNode = Vue.createVNode
+const _Comment = Vue.Comment
+
+const _hoisted_1 = _createVNode(\\"span\\", null, [
+  _createVNode(_Comment, void 0, \\"comment\\")
+])
+
+return function render() {
+  with (this) {
+    const { createVNode: _createVNode, Comment: _Comment, createBlock: _createBlock, openBlock: _openBlock } = _Vue
+    
+    return (_openBlock(), _createBlock(\\"div\\", null, [
+      _hoisted_1
+    ]))
+  }
+}"
+`;
+
 exports[`compiler: hoistStatic transform hoist element with static key 1`] = `
 "const _Vue = Vue
 const _createVNode = Vue.createVNode
