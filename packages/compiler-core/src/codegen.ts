@@ -211,10 +211,13 @@ export function generate(
         // to provide the helper here.
         if (ast.hoists.length) {
           push(`const _${helperNameMap[CREATE_VNODE]} = Vue.createVNode\n`)
-          push(`const _${helperNameMap[COMMENT]} = Vue.Comment\n`)
+          if (ast.helpers.includes(COMMENT)) {
+            push(`const _${helperNameMap[COMMENT]} = Vue.Comment\n`)
+          }
         }
       }
     }
+
     genHoists(ast.hoists, context)
     context.newline()
     push(`return `)
